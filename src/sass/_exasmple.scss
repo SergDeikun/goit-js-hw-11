@@ -1,0 +1,39 @@
+body {
+  max-width: 960px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.search-form {
+  text-align: center;
+  height: 70px;
+  width: 100%;
+  background: linear-gradient(45deg, #13547a, #80d0c7);
+}
+
+input {
+  margin-top: 15px;
+  height: 30px;
+  width: 35%;
+  border-radius: 10px;
+  outline: none;
+}
+
+button {
+  height: 30px;
+  border-radius: 10px;
+}
+
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.load-more {
+  display: none;
+}
