@@ -95,7 +95,6 @@ const handleFormSubmit = async e => {
 
     if (imagesApiService.query === '') {
       Notify.warning('Please, enter a query!');
-      // refs.loadMoreBtn.classList.add('is-hidden');//todo можна видалити
       return;
     }
     const { hits, totalHits } = await imagesApiService.fechImages();
@@ -113,6 +112,7 @@ const handleFormSubmit = async e => {
 
     if (totalHits < 40) {
       refs.loadMoreBtn.classList.add('is-hidden');
+      Notify.info("We're sorry, but you've reached the end of search results.");
     }
 
     markupCards(hits);
@@ -139,14 +139,8 @@ const handleLoadMoreClick = async () => {
     const { hits, totalHits } = await imagesApiService.fechImages();
     refs.loadMoreBtn.classList.remove('is-hidden');
     markupCards(hits);
-
-    // imagesApiService.fechImages().then(({ hits, totalHits }) => {
-    //   refs.loadMoreBtn.classList.remove('is-hidden');
-    //   markupCards(hits);
-    // });
   } catch (error) {
-    refs.loadMoreBtn.classList.remove('is-hidden');
-    Notify.info("We're sorry, but you've reached the end of search results.");
+    console.log(error);
   }
 };
 
