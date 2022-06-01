@@ -110,11 +110,6 @@ const handleFormSubmit = async e => {
       Notify.success(`Hooray!We found ${totalHits} images`);
     }
 
-    if (totalHits < 40) {
-      refs.loadMoreBtn.classList.add('is-hidden');
-      Notify.info("We're sorry, but you've reached the end of search results.");
-    }
-
     markupCards(hits);
 
     const handleFormInput = e => {
@@ -138,8 +133,14 @@ const handleLoadMoreClick = async () => {
     refs.loadMoreBtn.classList.add('is-hidden');
     const { hits, totalHits } = await imagesApiService.fechImages();
     refs.loadMoreBtn.classList.remove('is-hidden');
+
     markupCards(hits);
+    if (Number(totalHits) < Number(40)) {
+      refs.loadMoreBtn.classList.add('is-hidden');
+    }
   } catch (error) {
+    Notify.info("We're sorry, but you've reached the end of search results.");
+
     console.log(error);
   }
 };
