@@ -16,7 +16,6 @@ export class ImagesApiService {
       `${URL}?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
     );
     this.page += 1;
-    console.log(data);
 
     return data;
   }

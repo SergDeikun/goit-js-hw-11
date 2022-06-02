@@ -55,7 +55,10 @@ const handleLoadMoreClick = async () => {
 
     markupCards(hits);
 
-    refs.loadMoreBtn.classList.remove('is-hidden');
+    if (hits.length > 1) {
+      refs.loadMoreBtn.classList.remove('is-hidden');
+      Notify.success(`Hooray!We found ${totalHits} images`);
+    }
 
     if (imagesApiService.totalPage() > totalHits) {
       refs.loadMoreBtn.classList.add('is-hidden');
