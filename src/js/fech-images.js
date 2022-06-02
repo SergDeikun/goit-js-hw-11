@@ -7,7 +7,8 @@ export class ImagesApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.perPage = 40;
+    this.perPage = 100;
+    this.totalPages = 0;
   }
 
   async fechImages() {
@@ -15,8 +16,14 @@ export class ImagesApiService {
       `${URL}?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
     );
     this.page += 1;
+    console.log(data);
 
     return data;
+  }
+
+  totalPage() {
+    this.totalPages = this.page * this.perPage;
+    return this.totalPages;
   }
 
   resetPage() {
