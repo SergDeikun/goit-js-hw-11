@@ -11,6 +11,7 @@ const handleFormSubmit = async e => {
   try {
     e.preventDefault();
     clearGallery();
+    refs.loadMoreBtn.classList.add('is-hidden');
 
     imagesApiService.query = e.currentTarget.elements.searchQuery.value.trim();
     imagesApiService.resetPage();
