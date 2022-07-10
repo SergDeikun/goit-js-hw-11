@@ -15,6 +15,7 @@ export class ImagesApiService {
     const { data } = await axios.get(
       `${URL}?key=${KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.perPage}&page=${this.page}`,
     );
+
     this.page += 1;
 
     return data;

@@ -44,6 +44,9 @@ const handleFormSubmit = async e => {
 
     let gallery = new SimpleLightbox('.gallery a');
     gallery.on('show.simplelightbox', () => {});
+
+    // // let gallery = new SimpleLightbox('.gallery a');
+    // gallery.on('close.simplelightbox', () => {});
   } catch (error) {
     console.log(error);
   }
